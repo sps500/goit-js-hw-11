@@ -2,6 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="style-src 'self' 'unsafe-inline';"
+    /> -->
+
     <link rel="icon" type="image/svg+xml" href="/goit-js-hw-11/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla App Template</title>
@@ -11,14 +17,24 @@
     <script type="module" crossorigin src="/goit-js-hw-11/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/vendor-7659544d.js">
     <link rel="stylesheet" href="/goit-js-hw-11/assets/vendor-a51daae5.css">
-    <link rel="stylesheet" href="/goit-js-hw-11/assets/index-f1a861bc.css">
+    <link rel="stylesheet" href="/goit-js-hw-11/assets/index-a2fcb747.css">
   </head>
   <body>
-    <div class="loader" id="loader">Loading...</div>
-    <form id="search-form">
-      <input type="text" name="query" />
-      <button type="submit">Search</button>
+    <form class="submit-form" id="search-form">
+      <input
+        class="text-input"
+        type="text"
+        name="query"
+        placeholder="Search images..."
+      />
+      <button class="submit-input" type="submit">Search</button>
     </form>
+
+    <div class="container-loader" id="loader">
+      <span class="loader"></span>
+      <p class="loader-span">Loading images, please wait....</p>
+    </div>
+
     <div id="gallery" class="gallery"></div>
     
   </body>
