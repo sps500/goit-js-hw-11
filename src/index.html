@@ -2,6 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="style-src 'self' 'unsafe-inline';"
+    /> -->
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla App Template</title>
@@ -10,11 +16,21 @@
     <link rel="stylesheet" href="./css/reset.css" />
   </head>
   <body>
-    <div class="loader" id="loader">Loading...</div>
-    <form id="search-form">
-      <input type="text" name="query" />
-      <button type="submit">Search</button>
+    <form class="submit-form" id="search-form">
+      <input
+        class="text-input"
+        type="text"
+        name="query"
+        placeholder="Search images..."
+      />
+      <button class="submit-input" type="submit">Search</button>
     </form>
+
+    <div class="container-loader" id="loader">
+      <span class="loader"></span>
+      <p class="loader-span">Loading images, please wait....</p>
+    </div>
+
     <div id="gallery" class="gallery"></div>
     <script type="module" src="./main.js"></script>
   </body>
