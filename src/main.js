@@ -8,6 +8,7 @@ import { clearGallery, renderImages } from './js/render-functions';
 document.addEventListener('DOMContentLoaded', () => {
   const searchForm = document.getElementById('search-form');
   const loader = document.getElementById('loader');
+  let lightbox; // Оголошуємо змінну lightbox тут, щоб мати доступ до неї поза блоком обробника подій
 
   searchForm.addEventListener('submit', async event => {
     event.preventDefault();
@@ -27,6 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const images = await searchImages(query);
       renderImages(images);
+
+      // Після відображення нових зображень оновлюємо lightbox
+      if (lightbox) {
+        lightbox.refresh();
+      } else {
+        lightbox = new SimpleLightbox('.gallery a');
+      }
     } catch (error) {
       console.error(error.message);
       iziToast.error({
@@ -37,8 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
       loader.style.display = 'none';
     }
   });
-
-  // При кліку на маленьке зображення в галереї відкривається його збільшена версія
-  // у модальному вікні з використанням бібліотеки SimpleLightbox
-  const lightbox = new SimpleLightbox('.gallery a');
 });
