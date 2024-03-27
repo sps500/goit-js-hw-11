@@ -45,4 +45,5 @@ document.addEventListener('DOMContentLoaded', () => {
       loader.style.display = 'none';
     }
   });
+  lightbox = new SimpleLightbox('.gallery a');
 });
